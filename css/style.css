@@ -17,6 +17,12 @@ h1 {
   align-items: center;
 }
 
+#new-task{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #new-task {
   width: 100%;
   background-color: #fff;

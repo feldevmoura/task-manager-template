@@ -1,3 +1,4 @@
+window.addEventListener('load', () => {
 //selecionando o botão de Add
 const buttonAdd = document.querySelector("#btnAdd");
 //selecionando o input
@@ -8,6 +9,38 @@ const tasklist = document.querySelector(".task-list");
 function checkTask(taskLi) {
   taskLi.classList.add("done");
 }
+
+inputTask.addEventListener('input', () => {
+  let passWor = document.querySelector('.pass');
+  let passConfirm = document.querySelector('.pass2');
+
+  passWor.style.display = 'block';
+  passWor.style.width = '100%';
+  passWor.style.marginTop = '0.5vw';
+  passConfirm.style.display = 'block';
+  passConfirm.style.width = '100%';
+
+  
+})
+
+let passWor1 = document.querySelector('.pass');
+let passConfirm2 = document.querySelector('.pass2');
+
+passConfirm2.addEventListener('input', (e) => {
+
+
+  if(passWor1.value != passConfirm2.value){
+    passWor1.style.border =  '1px solid red';
+    passWor1.style.border = '1px solid red';
+    passWor1.style.color = 'red';
+    passConfirm2.style.color = 'red'
+  }else{
+    passWor1.style.border =  '1px solid green'
+    passWor1.style.border = '1px solid green'
+    passWor1.style.color = 'green';
+    passConfirm2.style.color = 'green'
+  }
+})
 
 function createTask(task) {
   const li = document.createElement("li");
@@ -31,13 +64,28 @@ function createTask(task) {
   li.appendChild(imgCheck);
 
   tasklist.appendChild(li);
+
+  
 }
 
-buttonAdd.onclick = () => {
+buttonAdd.style.height = '3.7vw'
+
+buttonAdd.onclick = (e) => {
   //pegando o valor do input
   const newTask = inputTask.value;
+  let confirmaPass = document.querySelector('.pass2');
+  let passWord = document.querySelector('.pass');
+  if(passWord.value != confirmaPass.value){
+    e.preventDefault()
+  }else{
+    createTask(newTask);
+  }
+    
 
-  createTask(newTask);
-
-  inputTask.value = "";
+    // inputTask.value = "";
 };
+
+
+  
+
+})
